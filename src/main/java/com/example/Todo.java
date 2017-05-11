@@ -1,14 +1,21 @@
 package com.example;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name = "todos")
 public class Todo {
 	
+	@Id
+	@GeneratedValue
 	private int id;
+	
+	@NotNull
 	private String title;
+	
+	@NotNull
 	private Boolean checked;
 	
 	public Todo(int id, String title, Boolean checked){
