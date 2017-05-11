@@ -1,10 +1,21 @@
 package com.example;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "todos")
 public class Todo {
 	
 	private int id;
 	private String title;
 	private Boolean checked;
+	
+	public Todo(int id, String title, Boolean checked){
+		this.id = id;
+		this.title = title;
+		this.checked = checked;
+	}
 	
 	public int getId() {
 		return id;
