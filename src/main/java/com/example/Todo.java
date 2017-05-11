@@ -1,8 +1,6 @@
 package com.example;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
 
 @Entity
 @Table(name = "todos")
@@ -10,13 +8,18 @@ public class Todo {
 	
 	@Id
 	@GeneratedValue
+	@Column(name = "id")
 	private int id;
 	
-	@NotNull
+	@Column(name = "title")
 	private String title;
 	
-	@NotNull
+	@Column(name = "checked")
 	private Boolean checked;
+	
+	public Todo(){
+		
+	}
 	
 	public Todo(int id, String title, Boolean checked){
 		this.id = id;
