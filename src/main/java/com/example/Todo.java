@@ -1,6 +1,12 @@
 package com.example;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 @Table(name = "todos")
@@ -17,6 +23,7 @@ public class Todo {
 	@Column(name = "checked")
 	private Boolean checked;
 	
+	@Autowired
 	public Todo(){
 		
 	}
