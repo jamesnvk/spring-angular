@@ -19,11 +19,7 @@ public class AppController {
 	
 	@RequestMapping(value="/")
 	public ArrayList<Todo> index(){
-		ArrayList<Todo> list = new ArrayList<Todo>();
-		list.add(new Todo());
-		list.add(new Todo());
-		list.add(new Todo());
-		return list;
+		return todoService.getAll();
 	}
 	
 	//@RequestMapping(method=RequestMethod.POST, value="/")
