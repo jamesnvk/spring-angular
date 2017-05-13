@@ -22,6 +22,9 @@ public class AppController {
 		return todoService.getAll();
 	}
 	
-	//@RequestMapping(method=RequestMethod.POST, value="/")
+	@RequestMapping(method=RequestMethod.POST, value="/")
+	public void create(@RequestBody Todo todo){
+		todoService.addTodo(todo);
+	}
 
 }

@@ -27,6 +27,10 @@ public class Todo {
 		
 	}
 	
+	public Todo(String title){
+		this.title = title;
+	}
+	
 	public Todo(int id, String title, Boolean checked){
 		this.id = id;
 		this.title = title;
