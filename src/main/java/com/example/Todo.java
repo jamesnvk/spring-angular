@@ -23,7 +23,6 @@ public class Todo {
 	@Column(name = "checked")
 	private Boolean checked;
 	
-	@Autowired
 	public Todo(){
 		
 	}
