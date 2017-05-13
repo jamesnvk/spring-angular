@@ -10,18 +10,17 @@ public class TodoService {
 	
 	@Autowired
 	private TodoRepo todoRepo;
-
-	private ArrayList<Todo> todoList = new ArrayList<Todo>();
 	
 	public ArrayList<Todo> getAll(){
-		todoList.add(new Todo("groceries"));
-		todoList.add(new Todo("walk dog"));
-		todoList.add(new Todo("cook dinner"));
+
+		ArrayList<Todo> todoList = new ArrayList<Todo>();
+		todoRepo.findAll().forEach(todoList::add);
+
 		return todoList;
 	}
 
 	public void addTodo(Todo todo) {
-		todoList.add(todo);
+		todoRepo.save(todo);
 	}
 
 }

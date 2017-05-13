@@ -31,17 +31,17 @@ public class Todo {
 		this.title = title;
 	}
 	
-	public Todo(int id, String title, Boolean checked){
+	public Todo(Long id, String title, Boolean checked){
 		this.id = id;
 		this.title = title;
 		this.checked = checked;
 	}
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
