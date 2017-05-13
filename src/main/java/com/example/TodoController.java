@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import antlr.collections.List;
 
 @RestController
-public class AppController {
+public class TodoController {
 	
 	@Autowired
 	private TodoService todoService;
