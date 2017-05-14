@@ -8,9 +8,11 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
   <link rel="stylesheet" href="../static/style.css" th:href="@{/style.css}" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+  <script type="javascript" src="/static/app/app.js" th:src="@{/app/app.js}"></script>
+  <script type="javascript" src="/static/app/todo.controller.js" th:src="@{/app/todo.controller.js}"></script>
 
 </head>
-<body>
+<body ng-app="app" ng-controller="TodoController as vm">
   <div class="container">
     <img th:src="@{/jg.jpg}"/>
     <div class="todo">
