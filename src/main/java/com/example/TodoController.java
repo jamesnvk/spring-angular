@@ -17,12 +17,12 @@ public class TodoController {
 	@Autowired
 	private TodoService todoService;
 	
-	@RequestMapping(value="/")
+	@RequestMapping(value="/todos")
 	public ArrayList<Todo> index(){
 		return todoService.getAll();
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, value="/")
+	@RequestMapping(method=RequestMethod.POST, value="/todos")
 	public void create(@RequestBody Todo todo){
 		todoService.addTodo(todo);
 	}
