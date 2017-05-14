@@ -1,0 +1,21 @@
+.form-control {
+  width: 50%; 
+}
+
+.todo {
+  margin-left: 33%;
+  margin-top: 18%;
+}
+
+#form-title {
+  font-size: 18px;
+  color: #2A4759;
+}
+
+img {
+  display: block;
+  position: absolute;
+  margin-left: 35%;
+  margin-top: 35px;
+
+}
