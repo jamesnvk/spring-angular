@@ -12,6 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Table(name = "todos")
 public class Todo {
 	
+	@Override
+	public String toString() {
+		return "Todo [id=" + id + ", title=" + title + ", checked=" + checked + "]";
+	}
+
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
@@ -60,4 +65,43 @@ public class Todo {
 	public void setChecked(Boolean checked){
 		this.checked = checked;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((checked == null) ? 0 : checked.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Todo other = (Todo) obj;
+		if (checked == null) {
+			if (other.checked != null)
+				return false;
+		} else if (!checked.equals(other.checked))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		return true;
+	}
+	
+	
 }

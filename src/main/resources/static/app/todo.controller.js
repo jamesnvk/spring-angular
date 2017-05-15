@@ -14,15 +14,16 @@ function TodoController($http) {
     $http({
       method: 'POST',
       url: '/todos',
-      data: {'title': vm.todo},
+      data: {'title': vm.todo}
     })  
   }
 
-  this.checkTodo = function(){
+  this.done = function(todo){
+    todo.checked = true;
     $http({
       method: 'PUT',
-      url: '/todos',
-      data: {'checked': true},
+      url: '/todos/' + todo.id,
+      data: todo
     }) 
   }
 

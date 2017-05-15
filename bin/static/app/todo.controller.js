@@ -14,8 +14,23 @@ function TodoController($http) {
     $http({
       method: 'POST',
       url: '/todos',
-      data: {'title': vm.todo},
+      data: {'title': vm.todo}
     })  
+  }
+
+  this.done = function(todo){
+    debugger
+    todo.checked = true;
+
+    $http({
+      method: 'PUT',
+      url: '/todos/' + todo.id,
+      data: todo
+    }) 
+  }
+
+  this.deleteTodo = function(){
+    //
   }
 
 

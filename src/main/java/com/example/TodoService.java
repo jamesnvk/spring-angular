@@ -19,4 +19,8 @@ public class TodoService {
 		todoRepo.save(todo);
 	}
 
+	public void updateTodo(Todo todo) {
+		todoRepo.save(todo);
+	}
+
 }
