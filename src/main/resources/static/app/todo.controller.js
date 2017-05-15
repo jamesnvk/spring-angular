@@ -1,13 +1,38 @@
-(function(){
-  'use strict';
-  function TodoController() {
-    var vm = this;
+function TodoController($http) {
+  var vm = this;
+  this.todos = [];
+
+  vm.todo;
+
+  $http.get('/todos').then(function(resp){
+    resp.data.forEach(function(i){
+      vm.todos.push(i)
+    })
+  })
+
+  this.addTodo = function(){
+    $http({
+      method: 'POST',
+      url: '/todos',
+      data: {'title': vm.todo},
+    })  
   }
+
+  this.checkTodo = function(){
+    $http({
+      method: 'PUT',
+      url: '/todos',
+      data: {'checked': true},
+    }) 
+  }
+
+  this.deleteTodo = function(){
+    //
+  }
+
+
+}
   
-
-
-
-  angular
+angular
   .module('app')
-  .controller('TodoController', TodoController);
-})();
+  .controller('TodoController', ['$http', TodoController]);

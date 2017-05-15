@@ -18,7 +18,7 @@ public class TodoController {
 	private TodoService todoService;
 	
 	@RequestMapping(value="/todos")
-	public ArrayList<Todo> index(){
+	public java.util.List<Todo> index(){
 		return todoService.getAll();
 	}
 	

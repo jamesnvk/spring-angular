@@ -1,25 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://http://www.thymeleaf.org">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Spring Boot Angular</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+  <link rel="stylesheet" href="/style.css" />
+
+
+  <script src="/angular.min.js"></script>
+  <script src="/app/app.js"></script>
+  <script src="/app/todo.controller.js"></script>
 
 </head>
-<body>
+<body ng-app="app" ng-controller="TodoController as vm">
   <div class="container">
-    
+    <img src="/jg.jpg">
     <div class="todo">
-
         <div class="form-group">
-          <label for="todoform" id="form-title">Get shit done</label>
-          <input type="text" class="form-control" id="todoForm" placeholder="Enter your task">
+          <form ng-submit="vm.addTodo()">
+            <label for="todoform" id="form-title">Get shit done</label>
+            <input type="text" ng-model="vm.todo" class="form-control" id="todoForm" placeholder="Enter your task">
+          </form>
         </div>
-
+    <div class="results" >
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="todo in vm.todos">
+            {{todo.title}} 
+          </li>
+        </ul>
+      </div>
     </div>
   </div>  
 </body>

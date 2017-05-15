@@ -1,6 +1,6 @@
 package com.example;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,12 +11,8 @@ public class TodoService {
 	@Autowired
 	private TodoRepo todoRepo;
 	
-	public ArrayList<Todo> getAll(){
-
-		ArrayList<Todo> todoList = new ArrayList<Todo>();
-		todoRepo.findAll().forEach(todoList::add);
-
-		return todoList;
+	public List<Todo> getAll(){
+		return todoRepo.findAll();
 	}
 
 	public void addTodo(Todo todo) {
