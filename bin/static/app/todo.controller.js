@@ -1,5 +1,4 @@
 function TodoController($http) {
-  //refactor service
   var vm = this;
   
   vm.todos = [];
@@ -12,6 +11,7 @@ function TodoController($http) {
   })
 
   this.addTodo = function(){
+    debugger
     $http({
       method: 'POST',
       url: '/todos',
@@ -23,7 +23,7 @@ function TodoController($http) {
 
     vm.todo = '';  
   }
-  
+
   this.done = function(todo){
     var id = todo.id
       for(let i = 0; i < vm.todos.length; i++){
@@ -39,7 +39,7 @@ function TodoController($http) {
       url: '/todos/' + todo.id,
       data: todo
     }).then(function(resp){
-      debugger
+      vm.todos[index] = resp.data
     }) 
   }
 
