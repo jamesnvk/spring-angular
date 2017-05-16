@@ -19,12 +19,12 @@ public class TodoService {
 		return todoRepo.findOne(id);
 	}
 
-	public void addTodo(Todo todo) {
-		todoRepo.save(todo);
+	public Todo addTodo(Todo todo) {
+		return todoRepo.save(todo);
 	}
 
-	public void updateTodo(Todo todo) {
-		todoRepo.save(todo);
+	public Todo updateTodo(Todo todo) {
+		return todoRepo.save(todo);
 	}
 	
 	public void deleteTodo(Todo todo) {

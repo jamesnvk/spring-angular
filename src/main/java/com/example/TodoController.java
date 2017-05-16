@@ -24,14 +24,14 @@ public class TodoController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/todos")
-	public void create(@RequestBody Todo todo){
-		todoService.addTodo(todo);
+	public Todo create(@RequestBody Todo todo){
+		return todoService.addTodo(todo);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, value="/todos/{id}")
-	public void update(@RequestBody Todo todo, @PathVariable Long id){
+	public Todo update(@RequestBody Todo todo, @PathVariable Long id){
 		todo.setId(id);
-		todoService.updateTodo(todo);
+		return todoService.updateTodo(todo);
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/todos/{id}")

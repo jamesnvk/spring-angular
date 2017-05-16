@@ -1,4 +1,5 @@
 function TodoController($http) {
+  //refactor service
   var vm = this;
   
   vm.todos = [];
@@ -11,22 +12,34 @@ function TodoController($http) {
   })
 
   this.addTodo = function(){
-    
-
-    
     $http({
       method: 'POST',
       url: '/todos',
       data: {'title': vm.todo}
-    })  
-  }
+    }).then(function(resp){
+      debugger
+      vm.todos.push(resp.data)
+    })
 
+    vm.todo = '';  
+  }
+  
   this.done = function(todo){
+    var id = todo.id
+      for(let i = 0; i < vm.todos.length; i++){
+        if(vm.todos[i].id === id){
+          var index = vm.todos.indexOf(vm.todos[i])
+        }
+      }
+
     todo.checked = true;
+
     $http({
       method: 'PUT',
       url: '/todos/' + todo.id,
       data: todo
+    }).then(function(resp){
+      debugger
     }) 
   }
 
