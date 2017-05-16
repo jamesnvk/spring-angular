@@ -14,6 +14,10 @@ public class TodoService {
 	public List<Todo> getAll(){
 		return todoRepo.findAll();
 	}
+	
+	public Todo findOne(Long id){
+		return todoRepo.findOne(id);
+	}
 
 	public void addTodo(Todo todo) {
 		todoRepo.save(todo);
@@ -21,6 +25,10 @@ public class TodoService {
 
 	public void updateTodo(Todo todo) {
 		todoRepo.save(todo);
+	}
+	
+	public void deleteTodo(Todo todo) {
+		todoRepo.delete(todo);
 	}
 
 }

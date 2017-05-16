@@ -28,6 +28,9 @@
       <ul class="list-group">
         <li class="list-group-item" ng-repeat="todo in vm.todos">
           {{todo.title}} <input type='checkbox' ng-click="vm.done(todo)">
+          <button class="btn btn-xs btn-danger" ng-click="vm.deleteTodo(todo)">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
         </li>
       </ul>
       </div>

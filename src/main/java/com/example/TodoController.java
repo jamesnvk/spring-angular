@@ -31,8 +31,12 @@ public class TodoController {
 	@RequestMapping(method=RequestMethod.PUT, value="/todos/{id}")
 	public void update(@RequestBody Todo todo, @PathVariable Long id){
 		todo.setId(id);
-		System.out.println(todo);
 		todoService.updateTodo(todo);
 	}
-
+	
+	@RequestMapping(method=RequestMethod.DELETE, value="/todos/{id}")
+	public void delete(@PathVariable Long id){
+		Todo todo = todoService.findOne(id);
+		todoService.deleteTodo(todo);
+	}
 }

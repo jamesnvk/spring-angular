@@ -1,7 +1,7 @@
 function TodoController($http) {
   var vm = this;
-  this.todos = [];
-
+  
+  vm.todos = [];
   vm.todo;
 
   $http.get('/todos').then(function(resp){
@@ -11,6 +11,9 @@ function TodoController($http) {
   })
 
   this.addTodo = function(){
+    
+
+    
     $http({
       method: 'POST',
       url: '/todos',
@@ -27,10 +30,22 @@ function TodoController($http) {
     }) 
   }
 
-  this.deleteTodo = function(){
-    //
-  }
+  this.deleteTodo = function(todo){
+    var id = todo.id
+        for(let i = 0; i < vm.todos.length; i++){
+          if(vm.todos[i].id === id){
+            var index = vm.todos.indexOf(vm.todos[i])
+          }
+        }
+        //debugger
+    vm.todos.splice(index, 1)
 
+    $http({
+      method: 'DELETE',
+      url: '/todos/' + todo.id,        
+      data: todo
+      }) 
+  }
 
 }
   
