@@ -25,6 +25,10 @@ img {
 }
 
 #deleteBtn {
+ display: none;
+}
+
+.list-group-item:hover #deleteBtn {
   display:inline-block;
   position:absolute;
   right:0;
